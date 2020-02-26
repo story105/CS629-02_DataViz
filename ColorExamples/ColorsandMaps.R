@@ -24,7 +24,6 @@ ggplot(boom,aes(Var1,Var2)) + xlab(" ") + ylab(" ") +
 
 
 # required packages
-
 states_map<-map_data("state") #extracts data from the states map
 
 # Make a data set of US crime data from the USArrests data set
@@ -35,10 +34,11 @@ head(crime_map)
 
 # Plot make of murder rate. You can select any column in that 
 basemap<-ggplot(crime_map,aes(x=long,y=lat,group=group,fill=Murder)) +
-  geom_polygon() + coord_map("polyconic") 
+  geom_polygon() + coord_map("polyconic")
 
 # Color map sequential increasing with colorspace
 basemap + scale_fill_continuous_sequential(palette="Peach")
 
 # Color map diverging from the midpoint (mean murder rate) with colorspace 
 basemap + scale_fill_continuous_diverging(palette="Blue-Red",mid=mean(crime_map$Murder))
+
