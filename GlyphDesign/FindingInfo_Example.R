@@ -13,7 +13,14 @@ ggplot(iris, aes(Sepal.Width,Sepal.Length,color=Species,fill=Species,shape=Speci
   scale_fill_manual(values=c("gray10","red","black")) + 
   scale_color_manual(values=c("black","red","black"))
 
+# column1
+ggplot(iris, aes(Sepal.Width,Sepal.Length,color=Species,fill=Species,shape=Species)) + 
+  geom_point(aes(color=Species,fill=Species,shape=Species)) + 
+  scale_fill_manual(values=c("gray10","red","black")) + 
+  scale_color_manual(values=c("black","red","black"))
+
 # Example of a graph with integral display dimensions
+install.packages("ggforce")
 library(ggforce)
 
 iris$x<-c(seq(1,sum(iris$Species=="setosa")),
